@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B8B9A60E-1709-49B0-9FFC-ACAD48D2368A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Documents.Generator", "src\Documents.Generator\Documents.Generator.csproj", "{48F919E6-9FBF-4294-82D2-F7FE70F16B3C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{3584B6EE-64C6-4C32-8C6E-ABEA5ED8B2C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Documents.Generator.Tests", "tests\Documents.Generator.Tests\Documents.Generator.Tests.csproj", "{5DC4EA05-CB5C-48C6-8E45-BA607BBC4399}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "etc", "etc", "{40D76F34-16B9-4BCA-AB8A-3FA3648950E6}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.gitignore = .gitignore
+		Dockerfile = Dockerfile
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{48F919E6-9FBF-4294-82D2-F7FE70F16B3C} = {B8B9A60E-1709-49B0-9FFC-ACAD48D2368A}
+		{5DC4EA05-CB5C-48C6-8E45-BA607BBC4399} = {3584B6EE-64C6-4C32-8C6E-ABEA5ED8B2C0}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{48F919E6-9FBF-4294-82D2-F7FE70F16B3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48F919E6-9FBF-4294-82D2-F7FE70F16B3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48F919E6-9FBF-4294-82D2-F7FE70F16B3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48F919E6-9FBF-4294-82D2-F7FE70F16B3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DC4EA05-CB5C-48C6-8E45-BA607BBC4399}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DC4EA05-CB5C-48C6-8E45-BA607BBC4399}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DC4EA05-CB5C-48C6-8E45-BA607BBC4399}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DC4EA05-CB5C-48C6-8E45-BA607BBC4399}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
