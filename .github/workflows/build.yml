@@ -32,8 +32,8 @@ jobs:
     - name: Prepare
       id: prep
       run: |
-        DOCKERHUB_IMAGE=${{ secrets.DOCKER_IMAGE_NAME }}
-        TAGS="${DOCKERHUB_IMAGE}:latest"
+        DOCKERHUB_IMAGE= 4lexkislitsyn/documents-generator
+        TAGS="4lexkislitsyn/documents-generator:latest"
         echo ::set-output name=tags::${TAGS}
         echo ::set-output name=dockerhub_image::${DOCKERHUB_IMAGE}
     - name: Set up Docker Buildx
