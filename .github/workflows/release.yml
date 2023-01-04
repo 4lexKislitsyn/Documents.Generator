@@ -1,0 +1,44 @@
+on:
+  workflow_dispatch:
+    inputs:
+      prerelease:
+        description: 'Start prerelease'
+        required: true
+        default: true
+      version:
+        description: 'Release version without prerelease postfix'
+        required: true
+        default: '0.0.1'
+      notes:
+        required: true
+        default: ''
+
+name: Create Release
+
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@master
+      - name: Set outputs
+        id: vars
+        run: |
+          echo ::set-output name=sha_short::$(git rev-parse --short HEAD)
+      - id: extract_branch
+        run: |
+          echo ::set-output name=branch_name::${GITHUB_REF#refs/heads/}
+        env:
+          GITHUB_REF: ${{ github.ref }}
+      - name: Create Release for ${{ github.event.inputs.version }} (branch ${{ steps.extract_branch.branch_name }})
+        id: create_release
+        uses: juitnow/github-action-create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{github.event.inputs.version}}-alpha-${{ steps.vars.outputs.sha_short }}
+          release_name: Prerelease from branch '${{ steps.extract_branch.outputs.branch_name }}'
+          body: ${{github.event.inputs.notes}}
+          draft: true
+          prerelease: true
