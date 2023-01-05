@@ -24,11 +24,12 @@
         {
             await using var page = await browser.NewPageAsync().WaitAsync(cancellationToken);
             await page.SetRequestInterceptionAsync(true).WaitAsync(cancellationToken);
-            page.Request += (_, args) =>
+            page.Request += async (_, args) =>
             {
                 logger.LogWarning("Request to {Url} was aborted", args.Request.Url);
-                args.Request.AbortAsync();
+                await args.Request.AbortAsync().WaitAsync(cancellationToken);
             };
+
             await page.SetJavaScriptEnabledAsync(false).WaitAsync(cancellationToken);
             await page.EmulateMediaTypeAsync(MediaType.Screen).WaitAsync(cancellationToken);
             await page.SetContentAsync(content).WaitAsync(cancellationToken);

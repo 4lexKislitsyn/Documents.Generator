@@ -9,7 +9,7 @@ FROM build AS publish
 RUN dotnet publish "Documents.Generator.csproj" -c Release -o /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:7.0-alpine3.17 AS final
-RUN apk add chromium
+RUN apk add --no-cache chromium
 RUN adduser -D nonroot
 USER nonroot
 ENV ASPNETCORE_URLS http://*:5000
