@@ -15,6 +15,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "etc", "etc", "{40D76F34-16B
 		Dockerfile = Dockerfile
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{6845B4AF-FBC7-4E2D-985E-FF3D27AA0CE9}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build.yml = .github\workflows\build.yml
+		.github\workflows\release.yml = .github\workflows\release.yml
+		.github\workflows\release-docker.yml = .github\workflows\release-docker.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +30,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{48F919E6-9FBF-4294-82D2-F7FE70F16B3C} = {B8B9A60E-1709-49B0-9FFC-ACAD48D2368A}
 		{5DC4EA05-CB5C-48C6-8E45-BA607BBC4399} = {3584B6EE-64C6-4C32-8C6E-ABEA5ED8B2C0}
+		{6845B4AF-FBC7-4E2D-985E-FF3D27AA0CE9} = {40D76F34-16B9-4BCA-AB8A-3FA3648950E6}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{48F919E6-9FBF-4294-82D2-F7FE70F16B3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
