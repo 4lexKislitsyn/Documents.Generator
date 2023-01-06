@@ -3,8 +3,6 @@ name: CI
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
   workflow_dispatch:
 jobs:
   build:
@@ -37,7 +35,6 @@ jobs:
             latest=false
           tags: |
             type=semver,pattern={{version}}
-            type=sha,format=short
             type=edge
       - name: Set up Docker Buildx
         id: buildx
