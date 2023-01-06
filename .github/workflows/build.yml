@@ -34,7 +34,7 @@ jobs:
           images: |
             4lexkislitsyn/documents-generator
           flavor: |
-            latest=true
+            latest=false
           tags: |
             type=semver,pattern={{version}}
             type=sha,format=short
