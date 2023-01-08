@@ -1,0 +1,18 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "Documents.GRPC";
+
+package generate;
+
+service PdfGenerator {
+  rpc HtmlToPdf (PdfGenerateRequest) returns (stream PdfGenerateResponse);
+}
+
+message PdfGenerateRequest {
+  bytes template = 1;
+  bytes context = 2;
+}
+
+message PdfGenerateResponse {
+  bytes chunk = 1;
+}

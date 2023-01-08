@@ -31,7 +31,8 @@ ENV PUPPETEER_EXECUTABLE_PATH /usr/lib/chromium/chrome
 COPY --from=publish /app/publish .
 RUN adduser -D nonroot
 USER nonroot
-EXPOSE 5000
+EXPOSE 5001
+EXPOSE 5002
 ENTRYPOINT fc-cache -f && dotnet "Documents.Generator.dll"
 
 FROM base AS standalone
@@ -45,5 +46,6 @@ ENV PUPPETEER_EXECUTABLE_PATH /usr/lib/chromium/chrome
 COPY --from=publish /app/publish .
 RUN adduser -D nonroot
 USER nonroot
-EXPOSE 5000
+EXPOSE 5001
+EXPOSE 5002
 ENTRYPOINT fc-cache -f && dotnet "Documents.Generator.dll"

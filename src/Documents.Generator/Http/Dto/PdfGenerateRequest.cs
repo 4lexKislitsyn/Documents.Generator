@@ -1,9 +1,10 @@
-﻿namespace Documents.Generator.Http.Dto
+﻿#pragma warning disable CS8618
+namespace Documents.Generator.Http.Dto
 {
     using System.ComponentModel.DataAnnotations;
     using System.Text.Json;
 
-    public sealed class GenerateRequest
+    public sealed class PdfGenerateRequest
     {
         [Required]
         public string Template { get; set; }

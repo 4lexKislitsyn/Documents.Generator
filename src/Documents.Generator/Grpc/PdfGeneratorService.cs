@@ -6,18 +6,18 @@
     using global::Grpc.Core;
     using Google.Protobuf;
 
-    internal sealed class GeneratorService : Generator.GeneratorBase
+    internal sealed class PdfGeneratorService : PdfGenerator.PdfGeneratorBase
     {
         private readonly IDocumentGenerator documentGenerator;
 
-        public GeneratorService(IDocumentGenerator documentGenerator)
+        public PdfGeneratorService(IDocumentGenerator documentGenerator)
         {
             this.documentGenerator = documentGenerator;
         }
 
-        public override async Task Generate(
-            GenerateRequest request,
-            IServerStreamWriter<GenerateResponse> responseStream,
+        public override async Task HtmlToPdf(
+            PdfGenerateRequest request,
+            IServerStreamWriter<PdfGenerateResponse> responseStream,
             ServerCallContext context)
         {
             var jsonContext = JsonDocument.Parse(request.Context.ToStringUtf8());
@@ -31,7 +31,7 @@
 
             while ((bytesRead = await stream.ReadAsync(buffer, context.CancellationToken)) > 0)
             {
-                await responseStream.WriteAsync(new GenerateResponse
+                await responseStream.WriteAsync(new PdfGenerateResponse
                 {
                     Chunk = ByteString.CopyFrom(buffer[..bytesRead]),
                 });
