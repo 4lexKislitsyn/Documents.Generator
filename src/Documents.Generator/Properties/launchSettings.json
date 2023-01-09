@@ -9,16 +9,6 @@
         "ASPNETCORE_URLS": "http://*:5000",
         "Kestrel__EndpointDefaults__Protocols": "Http1AndHttp2"
       }
-    },
-    "grpc": {
-      "commandName": "Project",
-      "dotnetRunMessages": true,
-      "launchBrowser": false,
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
-        "ASPNETCORE_URLS": "http://*:5000",
-        "Kestrel__EndpointDefaults__Protocols": "Http2"
-      }
     }
   }
 }

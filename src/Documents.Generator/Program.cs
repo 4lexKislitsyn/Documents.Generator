@@ -1,10 +1,14 @@
 using System.Reflection;
+using System.Text.Json;
 using Documents.Generator;
 using Documents.Generator.Contracts;
 using Documents.Generator.Grpc;
 using Documents.Generator.Services;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.OpenApi.Any;
+using Microsoft.OpenApi.Models;
 using PuppeteerSharp;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,7 +27,15 @@ builder.Services.AddSwaggerGen(options =>
     var documentationFileName = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, documentationFileName));
 });
-builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
+builder.Services.ConfigureOptions<ConfigureSwaggerApiVersionsOptions>();
+builder.Services.Configure<SwaggerGenOptions>(options =>
+{
+    options.MapType<JsonDocument>(() => new OpenApiSchema
+    {
+        Type = "object",
+        Default = new OpenApiObject(),
+    });
+});
 
 // Add services to the container.
 builder.Services.Configure<PdfOptions>(builder.Configuration.GetSection(nameof(PdfOptions)));

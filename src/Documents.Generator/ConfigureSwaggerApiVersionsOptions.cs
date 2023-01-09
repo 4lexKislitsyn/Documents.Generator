@@ -5,11 +5,11 @@
     using Microsoft.OpenApi.Models;
     using Swashbuckle.AspNetCore.SwaggerGen;
 
-    public class ConfigureSwaggerOptions : IConfigureNamedOptions<SwaggerGenOptions>
+    public class ConfigureSwaggerApiVersionsOptions : IConfigureNamedOptions<SwaggerGenOptions>
     {
         private readonly IApiVersionDescriptionProvider apiProvider;
 
-        public ConfigureSwaggerOptions(IApiVersionDescriptionProvider apiProvider)
+        public ConfigureSwaggerApiVersionsOptions(IApiVersionDescriptionProvider apiProvider)
         {
             this.apiProvider = apiProvider;
         }
